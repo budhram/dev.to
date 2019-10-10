@@ -1,4 +1,4 @@
-<%= javascript_pack_tag "colorPicker", defer: true %>
+<%= javascript_pack_tag "colorPreview", defer: true %>
 
 <h3>Join An Organization</h3>
 <h5>Do you have the secret code?</h5>
@@ -39,16 +39,9 @@
     <%= f.label :github_username, "Github Username" %>
     <%= f.text_field :github_username %>
   </div>
-  <div class="field">
-    <%= f.label :text_color_hex, "Text color (hex)" %>
-    <%= text_field_tag "organization[text_color_hex]", "#000000", placeholder: "Click for color picker", class: "color-picker" %>
-    <div class="color-palette"></div>
-  </div>
-  <div class="field">
-    <%= f.label :bg_color_hex, "Background color (hex)" %>
-    <%= text_field_tag "organization[bg_color_hex]", "#FFFFFF", placeholder: "Click for color picker", class: "color-picker" %>
-    <div class="color-palette"></div>
-  </div>
+
+  <%= render partial: "shared/logo_design", locals: { f: f, account: Organization.new } %>
+
   <div class="field">
     <%= f.label :url, "Website url *" %>
     <%= f.url_field :url, placeholder: "http://yoursite.com" %>
